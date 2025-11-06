@@ -1,0 +1,58 @@
+🧩 What is an API in PHP?
+
+API stands for Application Programming Interface — it’s a way for two software systems to communicate with each other.
+
+In PHP, APIs are often used to:
+
+Get data from another server or service
+
+Send data to another application (for example, to create a new user, send a message, or place an order)
+
+💡 Simple Definition
+
+An API is a set of rules that allows one program to talk to another.
+In web development, APIs usually send and receive data over HTTP, often in JSON format.
+
+🌍 Example: Get Weather Data Using PHP
+
+Here’s a simple example of using a public API to get real-time weather information:
+
+<?php
+$response = file_get_contents("https://api.open-meteo.com/v1/forecast?latitude=35.6892&longitude=51.3890&current_weather=true");
+$data = json_decode($response, true);
+
+echo "Temperature in Tehran: " . $data['current_weather']['temperature'] . " °C";
+?>
+
+
+Explanation:
+
+https://api.open-meteo.com/... → this is the API endpoint
+
+PHP sends an HTTP request to the API
+
+The API responds with JSON data
+
+We decode it and display the temperature
+
+⚙️ Common Types of APIs in PHP
+
+REST API — most popular, uses HTTP + JSON
+
+SOAP API — older, uses XML
+
+GraphQL API — modern, flexible query language
+
+🔧 Common PHP Tools for Working with APIs
+
+file_get_contents() → simple, good for basic GET requests
+
+cURL → more advanced, supports headers, POST, etc.
+
+Libraries:
+
+GuzzleHTTP
+ – powerful HTTP client for modern PHP projects
+
+Symfony HTTP Client
+ – fast and developer-friendly
